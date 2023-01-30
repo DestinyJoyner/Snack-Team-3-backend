@@ -3,6 +3,8 @@ const snacks = express.Router()
 
 const {getAllSnacks, getOneSnack, createSnack, updateSnack, deleteSnack,} = require("../queries/snacks.js")
 
+const { validateRequest, confirmHealth } = require("../validations.js")
+
 
 
 // GET ALL
@@ -31,7 +33,7 @@ snacks.get("/:id", async (req, res) => {
 })
 
 // CREATE
-snacks.post("/", async (req, res) => {
+snacks.post("/", validateRequest, confirmHealth, async (req, res) => {
     const newSnack = await createSnack(req.body)
 
     if(!newSnack.message){
@@ -43,7 +45,7 @@ snacks.post("/", async (req, res) => {
 })
 
 // UPDATE
-snacks.put("/:id", async (req, res) => {
+snacks.put("/:id", validateRequest, confirmHealth, async (req, res) => {
     const { id } = req.params
     const updatedSnack = await updateSnack(req.body, id)
 
