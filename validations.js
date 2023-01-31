@@ -1,25 +1,31 @@
-const validateRequest = (req, res, next) => {
-  const { name, description, image } = req.body;
+const e = require("express");
 
-//   name key check
+const validateRequest = (req, res, next) => {
+  let { name, description, image } = req.body;
+
+  //   name key check
   if (!name || typeof name !== "string") {
     res
       .status(422)
       .json({ Error: "name key is required and must be a string" });
   }
 
-//    description check
+  req.body.name = nameConversion(name)
+
+  //    description check
   if (description && typeof description !== "string") {
-    return res.status(422).json({ Error: "description value must be a string" });
+    return res
+      .status(422)
+      .json({ Error: "description value must be a string" });
   }
 
-//   image check
+  //   image check
   if (!image) {
     image = "https://";
   }
   validateUrl(image, res);
 
-//   numeric keys check
+  //   numeric keys check
   const numArr = ["fiber", "protein", "added_sugar", "carbs"];
 
   numArr.forEach((el) => {
@@ -59,9 +65,18 @@ const validateUrl = (value, res) => {
 
   if (urlStart !== "http://" && urlStarts !== "https://") {
     res
-    .status(400)
-    .json({ Error: "image url must begin with 'http://' or 'https://' " });
-  } 
+      .status(400)
+      .json({ Error: "image url must begin with 'http://' or 'https://' " });
+  }
+};
+
+const nameConversion = (string) => {
+  if (string.length < 2) {
+    return string;
+  }
+  
+ return string.toLowerCase().split(` `).map((el) => `${el.charAt(0).toUpperCase()}${el.slice(1)}`).join(` `);
+   
 };
 
 module.exports = {
