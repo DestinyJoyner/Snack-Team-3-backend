@@ -26,10 +26,10 @@ CREATE TABLE devs (
     githubURL TEXT,
     indeedURL TEXT,
     email TEXT, 
-    description TEXT,
+    description TEXT
 );
 
-DROP IF TABLE EXISTS favorites;
+DROP TABLE IF EXISTS favorites;
 
 CREATE TABLE favorites (
     id SERIAL PRIMARY KEY,
