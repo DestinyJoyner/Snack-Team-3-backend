@@ -44,7 +44,7 @@ devs.delete("/:id", async (req, resp) => {
     const deletedDev = deleteDev(id)
 
     if(!deletedDev.message){
-        resp.status(200).json(deletedFav)
+        resp.status(200).json(deletedDev)
     }
     else {
         resp.status(500).json({error: deletedDev.message})
