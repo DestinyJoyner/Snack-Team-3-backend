@@ -13,6 +13,8 @@ app.use(express.json())
 app.use(morgan("tiny"))
 app.use(cors())
 app.use("/snacks", snackController)
+// dev route
+app.use("/devs", require("./controllers/devs.js"))
 
 
 // ROUTES
