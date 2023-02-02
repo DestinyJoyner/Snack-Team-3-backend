@@ -1,6 +1,6 @@
 const express = require("express")
 const devs = express.Router()
-const { getAllDevs, createDev, updateDev} = require("../queries/devs.js")
+const { getAllDevs, createDev, updateDev, deleteDev} = require("../queries/devs.js")
 
 // GET ALL
 devs.get("/", async (req, resp) => {
@@ -35,6 +35,19 @@ devs.put("/:id", async (req, resp) => {
     }
     else {
         resp.status(500).json({error: updatedDev.message})
+    }
+})
+
+// DELETE 
+devs.delete("/:id", async (req, resp) => {
+    const { id } = req.params
+    const deletedDev = deleteDev(id)
+
+    if(!deletedDev.message){
+        resp.status(200).json(deletedFav)
+    }
+    else {
+        resp.status(500).json({error: deletedDev.message})
     }
 })
 

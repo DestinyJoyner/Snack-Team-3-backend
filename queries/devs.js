@@ -50,9 +50,22 @@ const updateDev = async (obj, idValue) => {
     }
 }
 
+const deleteDev = async (idValue) => {
+    try {
+      const deletedDev = await db.one(
+        "DELETE FROM devs WHERE id=$1 RETURNING *",
+        idValue
+      );
+      return deletedDev;
+    } catch (error) {
+      return error;
+    }
+  };
+
 
 module.exports = {
     getAllDevs,
     createDev,
     updateDev,
+    deleteDev
 }

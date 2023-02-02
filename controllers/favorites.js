@@ -23,7 +23,7 @@ favorites.post("/", async (req, resp) => {
         resp.status(200).json(newFav)
     }
     else {
-        resp.status(500).json({error: newSnack.message})
+        resp.status(500).json({error: newFav.message})
     }
 })
 
@@ -36,7 +36,7 @@ favorites.delete("/:id", async (req, resp) => {
         resp.status(200).json(deletedFav)
     }
     else {
-        resp.status(500).json({error: newSnack.message})
+        resp.status(500).json({error: deletedFav.message})
     }
 })
 
