@@ -13,8 +13,9 @@ const getFavorites = async () => {
 const createFavorite = async (obj) => {
     try {
         const newFav = await db.one(
-            "INSERT INTO favorites (name, fiber, protein, added_sugar, is_healthy, image, carbs, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+            "INSERT INTO favorites (id,name, fiber, protein, added_sugar, is_healthy, image, carbs, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
       [
+        obj.id,
         obj.name,
         obj.fiber,
         obj.protein,

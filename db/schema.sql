@@ -32,7 +32,7 @@ CREATE TABLE devs (
 DROP TABLE IF EXISTS favorites;
 
 CREATE TABLE favorites (
-    id SERIAL PRIMARY KEY,
+    id NUMERIC,
     name TEXT NOT NULL,
     fiber NUMERIC DEFAULT 0,
     protein NUMERIC DEFAULT 0,
