@@ -15,6 +15,8 @@ app.use(cors())
 app.use("/snacks", snackController)
 // dev route
 app.use("/devs", require("./controllers/devs.js"))
+// favorites route
+app.use("/favorites", require("./controllers/favorites.js"))
 
 
 // ROUTES

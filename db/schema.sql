@@ -29,5 +29,19 @@ CREATE TABLE devs (
     description TEXT,
 );
 
+DROP IF TABLE EXISTS favorites;
+
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    fiber NUMERIC DEFAULT 0,
+    protein NUMERIC DEFAULT 0,
+    added_sugar NUMERIC DEFAULT 0,
+    is_healthy BOOL,
+    image TEXT DEFAULT 'not found pic',
+    description TEXT DEFAULT 'description',
+    carbs NUMERIC DEFAULT 0 
+);
+
 -- npm run dbinit
 
