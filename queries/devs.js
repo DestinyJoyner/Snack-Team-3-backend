@@ -55,7 +55,7 @@ const deleteDev = async (idValue) => {
       const deletedDev = await db.one(
         "DELETE FROM devs WHERE id=$1 RETURNING *",
         idValue
-      );
+      )
       return deletedDev;
     } catch (error) {
       return error;
