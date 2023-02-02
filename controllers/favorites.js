@@ -9,7 +9,10 @@ favorites.get("/", async (req, resp) => {
     if(allFavs.length){
         resp.status(200).json(allFavs)
     }
-    resp.status(500).json({error:"server error"})
+    else {
+        resp.status(500).json({error:"server error"})
+    }
+    
 })
 
 // CREATE
