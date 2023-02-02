@@ -41,8 +41,8 @@ devs.put("/:id", async (req, resp) => {
 // DELETE 
 devs.delete("/:id", async (req, resp) => {
     const { id } = req.params
-    const deletedDev = deleteDev(id)
-
+    const deletedDev = await deleteDev(id)
+    
     if(!deletedDev.message){
         resp.status(200).json(deletedDev)
     }

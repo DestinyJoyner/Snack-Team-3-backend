@@ -56,8 +56,9 @@ const deleteDev = async (idValue) => {
         "DELETE FROM devs WHERE id=$1 RETURNING *",
         idValue
       )
-      return deletedDev;
-    } catch (error) {
+    return deletedDev
+    } 
+    catch (error) {
       return error;
     }
   };
