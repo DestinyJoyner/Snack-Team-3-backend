@@ -34,13 +34,9 @@ DROP TABLE IF EXISTS favorites;
 CREATE TABLE favorites (
     id NUMERIC,
     name TEXT NOT NULL,
-    fiber NUMERIC DEFAULT 0,
-    protein NUMERIC DEFAULT 0,
-    added_sugar NUMERIC DEFAULT 0,
-    is_healthy BOOL,
-    image TEXT DEFAULT 'not found pic',
-    description TEXT DEFAULT 'description',
-    carbs NUMERIC DEFAULT 0 
+    snack_id INT NOT NULL,
+    CONSTRAINT fk_snacks_snack_id
+    FOREIGN KEY (snack_id) REFERENCES snacks(id) ON DELETE CASCADE
 );
 
 -- npm run dbinit
