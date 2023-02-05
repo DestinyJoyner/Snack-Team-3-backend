@@ -10,7 +10,7 @@ favorites.get("/", async (req, resp) => {
         resp.status(200).json(allFavs)
     }
     else {
-        resp.status(200).json({name:"Currently no favorites"})
+        resp.status(200).json([{name:"Currently no favorites"}])
     }
     
 })
