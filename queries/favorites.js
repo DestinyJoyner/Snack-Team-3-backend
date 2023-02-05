@@ -13,9 +13,8 @@ const getFavorites = async () => {
 const createFavorite = async (obj) => {
     try {
         const newFav = await db.one(
-            "INSERT INTO favorites (id, name, snack_id) VALUES ($1, $2, $3) RETURNING *",
+            "INSERT INTO favorites (name, snack_id) VALUES ($1, $2) RETURNING *",
       [
-        obj.id,
         obj.name,
         obj.snack_id
       ]
@@ -29,7 +28,7 @@ const createFavorite = async (obj) => {
 
 const deleteFavorite = async (idValue) => {
     try {
-       const deletedFav = await db.one('DELETE FROM favorites WHERE id=$1 RETURNING *', idValue)
+       const deletedFav = await db.one('DELETE FROM favorites WHERE snack_id=$1 RETURNING *', idValue)
        return deletedFav 
     } 
     catch (error) {
