@@ -18,6 +18,7 @@ INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image, carbs,
 
 -- ('Healthy Birthday Cake Square', 4, 8, 19, false, 'https://content.nutrisystem.com/images/products/alc/large/BirthdayCakeSquare_L.jpg');
 
+
 -- npm run dbseed
 
 -- (name, fiber, protein, added_sugar, is_healthy, image, carbs, description)
