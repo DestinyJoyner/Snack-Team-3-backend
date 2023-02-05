@@ -32,7 +32,6 @@ CREATE TABLE devs (
 DROP TABLE IF EXISTS favorites;
 
 CREATE TABLE favorites (
-    id NUMERIC,
     name TEXT NOT NULL,
     snack_id INT NOT NULL,
     CONSTRAINT fk_snacks_snack_id
